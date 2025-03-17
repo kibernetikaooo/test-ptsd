@@ -1,0 +1,102 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>test</title>
+  <meta name="description" content="A website that learns to predict where you are looking at. Written in TensorFlow.js">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link rel="stylesheet" href="normalize.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <!--[if lte IE 9]>
+  <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+  <![endif]-->
+
+  <canvas id="heatMap"></canvas>
+
+  <div class="eyes">Глаза</div>
+  <div class="camera">Камера</div>
+
+
+  <div id="info" data-content="info">
+    <h3>Привет! 😃</h3>
+    Пожалуйста, включи веб-камеру.
+  </div>
+
+  <div id="training">
+    <table>
+      <tr>
+        <td>Количество тренировок</td>
+        <td data-content="n-train">0</td>
+      </tr>
+      <tr>
+        <td>Примеры проверки</td>
+        <td data-content="n-val">0</td>
+      </tr>
+      <tr>
+        <td>Количество обучений</td>
+        <td data-content="n-epochs">0</td>
+      </tr>
+      <tr>
+        <td>Потери во время тренировок</td>
+        <td data-content="train-loss">?</td>
+      </tr>
+      <tr>
+        <td>Потеря проверки</td>
+        <td data-content="val-loss">?</td>
+      </tr>
+    </table>
+    <div class="buttonwrap">
+      <div class="buttonrow">
+        <button id="start-training" disabled>Начать тренировку</button>
+
+      </div>
+      <div class="buttonrow">
+        <button id="reset-model" disabled>Перезагрузить тренировку</button>
+      </div>
+      <div class="buttonrow">
+        <button id="draw-heatmap" disabled>Нарисовать тепловую карту</button>
+
+      </div>
+      <div class="buttonrow">
+        <button id="clear-heatmap" disabled>Стереть тепловую карту</button>
+      </div>
+      <div class="buttonrow">
+        <button id="store-data" disabled>Сохранить модель</button>
+        <button id="load-data">Загрузить модель</button>
+        <input type="file" id="data-uploader">
+      </div>
+    </div>
+  </div>
+
+  <video id="webcam" width="400" height="300" autoplay></video>
+  <canvas id="overlay" width="400" height="300"></canvas>
+
+  <footer>
+    Вы можете помечать точки для модели по всему экрану! (включая меню и веб-камеру) 
+  </footer>
+
+  <canvas id="eyes" width="50" height="25"></canvas>
+
+  <div id="target"></div>
+
+
+  <script src="js/jquery-3.3.1.min.js"></script>
+  <script src="js/tfjs@1.5.0.js"></script>
+  <script src="js/vendor/clmtrackr.js"></script>
+  <script src="js/globals.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/facetracker.js"></script>
+  <script src="js/mouse.js"></script>
+  <script src="js/dataset.js"></script>
+  <script src="js/training.js"></script>
+  <script src="js/heat.js"></script>
+  <script src="js/main.js"></script>
+</body>
+
+</html>
